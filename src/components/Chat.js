@@ -31,8 +31,6 @@ export default function Chat({ user, page }) {
 	const messages = useChatMessages(roomId);
 	const room = useRoom(roomId, user.uid);
 
-	console.log(messages);
-
 	function onChange(event) {
 		setInput(event.target.value);
 	}
