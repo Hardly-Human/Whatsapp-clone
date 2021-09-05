@@ -9,10 +9,29 @@ import ChatFooter from "./ChatFooter";
 import MediaPreview from "./MediaPreview";
 
 export default function Chat({ user, page }) {
-	const { roomId } = useParams();
+	const [image, setImage] = React.useState(null);
+	const [src, setSrc] = React.useState("");
 
+	const { roomId } = useParams();
 	const room = useRoom(roomId, user.uid);
 	const history = useHistory();
+
+	function showPreview(event) {
+		const file = event.target.files[0];
+		if (file) {
+			setImage(file);
+			const reader = new FileReader();
+			reader.readAsDataURL(file);
+			reader.onload = () => {
+				setSrc(reader.result);
+			};
+		}
+	}
+
+	function closePreview() {
+		setSrc("");
+		setImage(null);
+	}
 
 	return (
 		<div className="chat">
@@ -39,6 +58,7 @@ export default function Chat({ user, page }) {
 						style={{ display: "none" }}
 						accept="image/*"
 						type="file"
+						onChange={showPreview}
 					/>
 					<IconButton>
 						<label
@@ -65,7 +85,7 @@ export default function Chat({ user, page }) {
 				</div>
 			</div>
 
-			<MediaPreview />
+			<MediaPreview src={src} closePreview={closePreview} />
 
 			<ChatFooter />
 		</div>
