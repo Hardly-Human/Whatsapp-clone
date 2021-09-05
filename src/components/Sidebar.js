@@ -14,10 +14,12 @@ import { NavLink, Switch, Route } from "react-router-dom";
 import SidebarList from "./SidebarList";
 import useRooms from "../hooks/useRooms";
 import useUsers from "../hooks/useUsers";
+import useChats from "../hooks/useChats";
 
 export default function Sidebar({ user, page }) {
 	const rooms = useRooms();
 	const users = useUsers(user);
+	const chats = useChats(user);
 
 	const [menu, setMenu] = React.useState(1);
 
@@ -120,7 +122,7 @@ export default function Sidebar({ user, page }) {
 			{page.isMobile ? (
 				<Switch>
 					<Route path="/chats">
-						<SidebarList title="Chats" data={[]} />
+						<SidebarList title="Chats" data={chats} />
 					</Route>
 					<Route path="/rooms">
 						<SidebarList title="Rooms" data={rooms} />
@@ -133,7 +135,7 @@ export default function Sidebar({ user, page }) {
 					</Route>
 				</Switch>
 			) : menu === 1 ? (
-				<SidebarList title="Chats" data={[]} />
+				<SidebarList title="Chats" data={chats} />
 			) : menu === 2 ? (
 				<SidebarList title="Rooms" data={rooms} />
 			) : menu === 3 ? (
