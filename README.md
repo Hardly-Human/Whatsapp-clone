@@ -1,6 +1,6 @@
 <img src="https://raw.githubusercontent.com/Hardly-Human/Whatsapp-clone/main/public/login-logo.png" alt="Logo of the project" width="100" height="100">
 
-# WhatsApp-Clone [[Live Deployment]](https://www.iamrehan.me/Whatsapp-clone/)
+# WhatsApp-Clone [[Live Deployment]](https://www.rehan.tech/Whatsapp-clone/)
 
 ![](https://img.shields.io/badge/Build-passing-brightgreen)
 ![](https://badgen.net/david/dep/zeit/pkg)
