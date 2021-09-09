@@ -27,7 +27,7 @@ This Project is Buit with a React (Frontend) and Firebase (Backend) for Authenti
 
 ## Links
 
--   Project homepage: https://www.iamrehan.me/Whatsapp-clone/
+-   Project homepage: https://www.rehan.tech/Whatsapp-clone/
 -   Repository: https://github.com/Hardly-Human/Whatsapp-clone
 -   Issue tracker: https://github.com/Hardly-Human/Whatsapp-clone/issues
     -   In case of sensitive bugs like security vulnerabilities, please contact
