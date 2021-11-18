@@ -1,4 +1,4 @@
-import { Avatar, IconButton } from '@material-ui/core';
+import { Avatar, IconButton } from "@material-ui/core";
 import {
 	Add,
 	ExitToApp,
@@ -6,15 +6,15 @@ import {
 	Message,
 	PeopleAlt,
 	SearchOutlined,
-} from '@material-ui/icons';
-import React from 'react';
-import SidebarList from './SidebarList';
-import { auth, createTimestamp, db } from '../firebase';
-import './Sidebar.css';
-import { NavLink, Switch, Route } from 'react-router-dom';
-import useRooms from '../hooks/useRooms';
-import useUsers from '../hooks/useUsers';
-import useChats from '../hooks/useChats';
+} from "@material-ui/icons";
+import React from "react";
+import SidebarList from "./SidebarList";
+import { auth, createTimestamp, db } from "../firebase";
+import "./Sidebar.css";
+import { NavLink, Switch, Route } from "react-router-dom";
+import useRooms from "../hooks/useRooms";
+import useUsers from "../hooks/useUsers";
+import useChats from "../hooks/useChats";
 
 export default function Sidebar({ user, page }) {
 	const rooms = useRooms();
@@ -26,14 +26,14 @@ export default function Sidebar({ user, page }) {
 
 	function signOut() {
 		auth.signOut();
-		window.location.href = 'https://www.rehan.tech/Whatsapp-clone/';
+		window.location.href = "https://www.rehan.tech/Whatsapp-clone/";
 	}
 
 	function createRoom() {
-		const roomName = prompt('Type the name of your room');
+		const roomName = prompt("Type the name of your room");
 
 		if (roomName.trim()) {
-			db.collection('rooms').add({
+			db.collection("rooms").add({
 				name: roomName,
 				timestamp: createTimestamp(),
 			});
@@ -44,12 +44,12 @@ export default function Sidebar({ user, page }) {
 		event.preventDefault();
 		const query = event.target.elements.search.value;
 		const userSnapshot = await db
-			.collection('users')
-			.where('name', '==', query)
+			.collection("users")
+			.where("name", "==", query)
 			.get();
 		const roomSnapshot = await db
-			.collection('rooms')
-			.where('name', '==', query)
+			.collection("rooms")
+			.where("name", "==", query)
 			.get();
 		const userResults = userSnapshot.docs.map((doc) => ({
 			id: doc.id,
@@ -71,7 +71,7 @@ export default function Sidebar({ user, page }) {
 		Nav = (props) => (
 			<div
 				className={`${
-					props.activeClass ? 'sidebar__menu--selected' : ''
+					props.activeClass ? "sidebar__menu--selected" : ""
 				}`}
 				onClick={props.onClick}
 			>
@@ -84,7 +84,7 @@ export default function Sidebar({ user, page }) {
 		<div
 			className="sidebar"
 			style={{
-				minHeight: page.isMobile ? page.height : 'auto',
+				minHeight: page.isMobile ? page.height : "auto",
 			}}
 		>
 			<div className="sidebar__header">

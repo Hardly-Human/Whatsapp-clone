@@ -1,7 +1,7 @@
 {
 	"name": "whatsapp-clone",
 	"version": "0.1.0",
-	"homepage": "https://Hardly-Human.github.io/Whatsapp-clone",
+	"homepage": "https://www.rehan.tech/Whatsapp-clone",
 	"private": true,
 	"dependencies": {
 		"@material-ui/core": "^4.11.4",
